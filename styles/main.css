@@ -1,0 +1,344 @@
+/* ===================================================================
+   main.css — home page
+=================================================================== */
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+  position: relative;
+  margin: 0 -1rem 1rem;
+  border-radius: 0 0 32px 32px;
+  overflow: hidden;
+  min-height: 62vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(60, 52, 64, 0.05) 0%, rgba(60, 52, 64, 0.75) 90%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 2.2rem 1.8rem;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.hero-subtitle {
+  font-family: var(--font-handwritten);
+  font-size: 1.5rem;
+  opacity: 0.95;
+  max-width: 30rem;
+}
+
+/* counter "together for..." — the page's signature element */
+.counter {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.counter-item {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-dark);
+  border-radius: var(--radius-small);
+  padding: 0.8rem 1.1rem;
+  min-width: 4.6rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.counter-number {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--lilac-dark);
+}
+
+.counter-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-soft);
+  margin-top: 0.1rem;
+}
+
+/* ---------------- SECTIONS / CAROUSELS ---------------- */
+section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  gap: 1.1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.3rem 0.2rem 1.2rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 calc((100% - 2.2rem) / 3);
+  scroll-snap-align: start;
+  background-color: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.carousel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-small);
+}
+
+.carousel-card.tall img {
+  height: 300px;
+}
+
+.carousel-card p {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.carousel-card p + p {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-top: 0.15rem;
+}
+
+.carousel-card.cta-card {
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--lilac), var(--olive-green));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(60, 52, 64, 0.55);
+  color: white;
+  border: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.15rem;
+  z-index: 2;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-nav:hover {
+  background-color: var(--lilac-dark);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.carousel-nav.left { left: -0.2rem; }
+.carousel-nav.right { right: -0.2rem; }
+
+/* ---------------- VINYL (songs) ---------------- */
+@keyframes vinyl-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+#carousel-songs .vinyl {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid var(--text-dark);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5),
+              inset 0 0 30px rgba(0, 0, 0, 0.8),
+              inset 0 0 5px rgba(255, 255, 255, 0.1);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.25) 2%, transparent 3%) center/5% 5%;
+  transition: transform 0.4s ease;
+}
+
+/* subtle rotation on hover (when not playing) */
+/* .music-card:not(.playing):hover .vinyl {
+  transform: rotate(25deg);
+} */
+
+/* continuous rotation while playing */
+.music-card.playing .vinyl {
+  animation: vinyl-spin 3s linear infinite;
+}
+
+#carousel-songs .vinyl img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#carousel-songs .vinyl::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12%;
+  height: 12%;
+  background: var(--text-dark);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+/* Play/pause button */
+.vinyl-play-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  background: var(--lilac-dark);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.vinyl-play-btn:hover {
+  transform: scale(1.12);
+  background: var(--lilac);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.music-card.playing .vinyl-play-btn {
+  background: var(--olive-green);
+  animation: pulse-btn 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-btn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--olive-green-rgb, 100,120,80), 0.55); }
+  50%       { box-shadow: 0 0 0 8px rgba(var(--olive-green-rgb, 100,120,80), 0); }
+}
+
+#carousel-songs h3 {
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.download-btn {
+  margin-top: 1rem;
+  background-color: var(--olive-green);
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: var(--radius-small);
+  font-weight: 700;
+  display: inline-block;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  background-color: var(--olive-dark);
+}
+
+@media (max-width: 768px) {
+  .carousel-card { flex: 0 0 calc((100% - 1.1rem) / 2); }
+  .hero { border-radius: 0 0 22px 22px; min-height: 52vh; }
+}
+
+@media (max-width: 480px) {
+  .carousel-card { flex: 0 0 calc((100% - 1.1rem) / 2); }
+  .hero-title { font-size: 1.9rem; }
+  .counter-item { min-width: 4rem; padding: 0.6rem 0.8rem; }
+}

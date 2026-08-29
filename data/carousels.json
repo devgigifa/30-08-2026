@@ -1,0 +1,151 @@
+{
+  "photos": [
+    {
+      "src": "../assets/Screenshot_20231218_140058_Instagram.jpg",
+      "alt": "Subimos pra BC",
+      "title": "Subimos pra BC",
+      "date": "17/09/2023",
+      "action": "openModal('image-viewer', '../assets/Screenshot_20231218_140058_Instagram.jpg')"
+    },
+    {
+      "src": "../assets/20240811.jpg",
+      "alt": "Dia em Sambaqui",
+      "title": "Dia em Sambaqui",
+      "date": "11/08/2024",
+      "action": "openModal('image-viewer', '../assets/20240811.jpg')"
+    },
+    {
+      "src": "../assets/IMG_20250111_154035148.jpg",
+      "alt": "Dia no Shop",
+      "title": "Dia no Shop",
+      "date": "11/01/2025",
+      "action": "openModal('image-viewer', '../assets/IMG_20250111_154035148.jpg')"
+    },
+    {
+      "src": "../assets/IMG-20240630-WA0005.jpg",
+      "alt": "Dia no parque da Luz",
+      "title": "Dia no parque da Luz",
+      "date": "30/06/2024",
+      "action": "openModal('image-viewer', '../assets/IMG-20240630-WA0005.jpg')"
+    },
+    {
+      "cta": true,
+      "text": "Clique e veja mais fotos 😁",
+      "link": "gallery.html"
+    }
+  ],
+  "start": [
+    {
+      "src": "../assets/20230830c.jpg",
+      "alt": "Nosso dia, 2023",
+      "title": "Nosso dia",
+      "date": "30/08/2023",
+      "action": "openModal('image-viewer', '../assets/20230830c.jpg')"
+    },
+    {
+      "src": "../assets/20240831.jpg",
+      "alt": "Nosso dia, 2024",
+      "title": "Nosso dia",
+      "date": "30/08/2024",
+      "action": "openModal('image-viewer', '../assets/20240831.jpg')"
+    },
+    {
+      "cta": true,
+      "text": "E vão vir muuuuuuuuuito mais anos 😁"
+    }
+  ],
+  "songs": [
+    {
+      "src": "../assets/Ozzmosis.jpg",
+      "alt": "Capa Ozzmosis",
+      "title": "I Just Want You",
+      "artist": "Ozzy Osbourne",
+      "audioSrc": "../musics/I Just Want You.mp3"
+    },
+    {
+      "src": "../assets/mccartney.jpg",
+      "alt": "Capa McCartney",
+      "title": "My Valentine",
+      "artist": "Paul McCartney",
+      "audioSrc": "../musics/My Valentine.mp3"
+    },
+    {
+      "src": "../assets/fleet.jpeg",
+      "alt": "Capa Fleetwood Mac",
+      "title": "You Make Loving Fun",
+      "artist": "Fleetwood Mac",
+      "audioSrc": "../musics/You Make Loving Fun.mp3"
+    },
+    {
+      "src": "../assets/mirror.jpeg",
+      "alt": "Capa Mirrors",
+      "title": "Mirrors",
+      "artist": "Justin Timberlake",
+      "audioSrc": "../musics/Mirrors.mp3"
+    },
+    {
+      "src": "../assets/thewayyoumakemefeel.png",
+      "alt": "Capa Michael Jackson",
+      "title": "The Way You Make Me Feel",
+      "artist": "Michael Jackson",
+      "audioSrc": "../musics/The Way You Make Me Feel.mp3"
+    },
+    {
+      "cta": true,
+      "text": "Ouça a playlist completa no Spotify",
+      "link": "https://open.spotify.com/playlist/3NZ5nn2EghdkY7N4lRYBLL?si=eba863f944cb491f&pt=491f255674362128c74a154f0a2a321b"
+    }
+  ],
+  "sent": [
+    {
+      "src": "../assets/20230612s.jpg",
+      "alt": "Cartão Foto",
+      "title": "Dia dos namorados 2023",
+      "action": "openModal('image-viewer', '../assets/20230612q.jpg')"
+    },
+    {
+      "src": "../assets/20240515.jpg",
+      "alt": "Cartão Foto",
+      "title": "15/05/2024",
+      "action": "openModal('image-viewer', '../assets/20240515.jpg')"
+    },
+    {
+      "src": "../assets/15062025.png",
+      "alt": "Link externo",
+      "title": "Dia dos namorados 2025",
+      "link": "../send/card-dia-namorados-2025"
+    },
+    {
+      "src": "../assets/2025-08-29.png",
+      "alt": "Cartão Vídeo",
+      "title": "Vídeo surpresa",
+      "action": "openModal('video-viewer', '../assets/lv_0_20240828214738~3.mp4')"
+    }
+  ],
+  "received": [
+    {
+      "src": "../assets/1090680966-IMG-20230703-WA0000.jpg",
+      "alt": "Cartão Vídeo",
+      "title": "03/07/2023",
+      "action": "openModal('video-viewer', '../assets/20231018-WA0120.mp4')"
+    },
+    {
+      "src": "../assets/IMG_20240831_002554779_HDR.jpg",
+      "alt": "Cartão Foto",
+      "title": "FLOOORES 31/08/2024",
+      "action": "openModal('image-viewer', '../assets/IMG_20240831_002554779_HDR.jpg')"
+    },
+    {
+      "src": "../assets/IMG-20230710-WA0010.jpg",
+      "alt": "Cartão Foto",
+      "title": "10/07/2023",
+      "action": "openModal('image-viewer', '../assets/IMG-20230710-WA0010.jpg')"
+    },
+    {
+      "src": "../assets/IMG-20230823-WA0014.jpg",
+      "alt": "Cartão Foto",
+      "title": "23/08/2023",
+      "action": "openModal('image-viewer', '../assets/IMG-20230823-WA0014.jpg')"
+    }
+  ]
+}

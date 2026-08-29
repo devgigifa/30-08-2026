@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="GN - Galeria de fotos. Nossas memórias juntos." />
+    <title>GN - Nossas memórias</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/gallery.css">
+    
+    <script src="../js/menuhamb.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/gallery.js" defer></script>
+</head>
+<body>
+  <div id="app-header"></div>
+
+  <main class="gallery-container">
+    <div class="page-title">
+      <h1>Galeria de fotos</h1>
+      <p>Alguns momentos dos <span id="gallery-counter">...</span> dias.</p>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="nameFilter" placeholder="Filtrar por álbum ou legenda..." />
+      <input type="date" id="dateFilter" placeholder="Filtrar por data..." />
+      <button id="clearFilters" class="clear-filters-btn clickable" aria-label="Limpar filtros" style="display: none;">Limpar</button>
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+    <div id="albums"></div>
+  </main>
+
+  <div id="app-footer"></div>
+  <div id="app-modal"></div>
+</body>
+</html>

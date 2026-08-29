@@ -1,0 +1,18 @@
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <button class="modal-nav prev" id="modalPrev" aria-label="Foto anterior" style="display: none;">&#8592;</button>
+    <iframe id="pdf-viewer" class="modal-item" type="application/pdf" style="display: none;"></iframe>
+    <img id="image-viewer" class="modal-item" src="" alt="Ampliada" style="display: none;" />
+    <video id="video-viewer" class="modal-item" controls style="display: none;"></video>
+    <div id="pdf-download" class="modal-item" style="display: none;">
+      <iframe style="width:100%; height:300px;" type="application/pdf"></iframe>
+      <a id="download-link" href="#" download class="download-btn">Baixar figurinhas</a>
+    </div>
+    <!-- Elementos usados apenas no lightbox da galeria -->
+    <img id="modalImg" class="modal-item" src="" alt="Foto ampliada" style="display: none;" />
+    <div class="info" id="modalInfo" style="display: none;"></div>
+    
+    <button class="modal-nav next" id="modalNext" aria-label="Próxima foto" style="display: none;">&#8594;</button>
+  </div>
+</div>

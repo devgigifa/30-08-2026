@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>GN - Nossas memórias</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./styles/login.css">
+  <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="form signin">
+      <h2>Entre em Nossas Memórias</h2>
+      <div class="inputBox">
+        <input type="text" id="username" required>
+        <i class="fa-regular fa-user"></i>
+        <span>usuário</span>
+      </div>
+      <div class="inputBox">
+        <input type="password" id="password" required>
+        <i class="fa-solid fa-lock"></i>
+        <span>senha</span>
+      </div>
+      <div class="inputBox">
+        <input type="submit" value="Login" onclick="login()">
+      </div>
+      <p class="error-msg" id="errorText">vixe, num é isso não</p>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorText = document.getElementById("errorText");
+
+      const validUser = ["gigi", "nicolas"];
+      const validPass = "2744577S";
+
+      if (validUser.includes(username) && password === validPass) {
+        window.location.href = "./pages/main.html";
+      } else {
+        errorText.classList.add("show");
+      }
+    }
+  </script>
+</body>
+</html>

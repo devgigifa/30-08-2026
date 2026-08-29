@@ -1,0 +1,342 @@
+/* ===================================================================
+   GN — Nossas Memórias
+   Global styles: colors, typography, header, footer, modal
+=================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap");
+
+:root {
+  /* --- palette: the usual tones, with light/dark variations --- */
+  --lilac: #c8a2c8;
+  --lilac-light: #e9d9ec;
+  --lilac-dark: #7c5c86;
+
+  --olive-green: #b2c2a2;
+  --olive-light: #dbe6d2;
+  --olive-dark: #6f8560;
+
+  --bg-light: #faf7fb;
+  --bg-card: #ffffff;
+  --text-dark: #3c3440;
+  --text-soft: #6c6270;
+  --text-light: #fff;
+
+  --shadow: 0 6px 20px rgba(124, 92, 134, 0.14);
+  --shadow-strong: 0 12px 32px rgba(124, 92, 134, 0.22);
+
+  --radius: 18px;
+  --radius-small: 10px;
+
+  --font-heading: "Fraunces", "Georgia", serif;
+  --font-body: "Quicksand", sans-serif;
+  --font-handwritten: "Caveat", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  padding-top: 70px; /* Offset for the fixed header */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* subtle floating petals/hearts in the background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 8% 15%, rgba(200, 162, 200, 0.16) 0, transparent 45%),
+    radial-gradient(circle at 92% 25%, rgba(178, 194, 162, 0.18) 0, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(200, 162, 200, 0.12) 0, transparent 40%);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.01em;
+}
+
+h2.section-title,
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--lilac-dark);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--lilac), transparent);
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1.1rem 1.5rem;
+  background: linear-gradient(120deg, var(--lilac), var(--olive-green));
+  background-size: 200% 200%;
+  animation: smoothGradient 12s ease infinite;
+  color: white;
+  box-shadow: 0 2px 14px rgba(60, 52, 64, 0.18);
+}
+
+@keyframes smoothGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.header-center {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+}
+
+.header-left {
+  position: absolute;
+  left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger {
+  cursor: pointer;
+  font-size: 1.7rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.hamburger:hover,
+.hamburger.open {
+  transform: rotate(90deg);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.7rem;
+  min-width: 160px;
+  background-color: rgba(60, 52, 64, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  animation: menuOpen 0.2s ease;
+}
+
+@keyframes menuOpen {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu a {
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  display: block;
+  text-decoration: none;
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--olive-green);
+  padding-left: 1.5rem;
+}
+
+.dropdown-menu a.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 3px solid var(--lilac-light);
+  padding-left: 1.5rem;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .dropdown-menu { display: none; }
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  background: linear-gradient(to right, var(--lilac), var(--olive-green));
+  padding: 1.6rem 2rem;
+  text-align: center;
+  color: white;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+footer .counter-footer {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* ---------------- MODAL (shared) ---------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(40, 32, 44, 0.82);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal.hidden {
+  display: flex; /* keep flex, control via opacity/pointer-events */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal:not(.hidden) {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--bg-card);
+  max-width: 92%;
+  max-height: 90%;
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: scale(0.94);
+  transition: transform 0.25s ease;
+}
+
+.modal:not(.hidden) .modal-content {
+  transform: scale(1);
+}
+
+.modal-content iframe,
+.modal-content img,
+.modal-content video {
+  width: 100%;
+  height: 100%;
+  max-height: 70vh;
+  border: none;
+  border-radius: var(--radius-small);
+}
+
+.modal .close {
+  position: absolute;
+  top: -0.9rem;
+  right: -0.9rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--lilac-dark);
+  background: white;
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.modal .close:hover {
+  color: var(--olive-dark);
+  transform: rotate(90deg);
+}
+
+/* lightbox navigation arrows (used in the gallery) */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--lilac-dark);
+  border: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 5;
+}
+
+.modal-nav:hover {
+  background: var(--lilac);
+  color: white;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.modal-nav.prev { left: -1.2rem; }
+.modal-nav.next { right: -1.2rem; }
+
+@media (max-width: 640px) {
+  .modal-nav.prev { left: 0.3rem; }
+  .modal-nav.next { right: 0.3rem; }
+}
+
+/* respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+* {
+  font-family: inherit;
+}
+
+/* Utilities */
+.clickable {
+  cursor: pointer;
+}

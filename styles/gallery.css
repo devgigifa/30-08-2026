@@ -1,0 +1,171 @@
+/* ===================================================================
+   gallery.css — gallery page
+=================================================================== */
+
+.gallery-container, .gallery, #albums {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.gallery-container {
+  padding: 5.5rem 1rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.page-title {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.page-title h1 {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--lilac-dark);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+.page-title p {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: var(--text-soft);
+  margin-top: 0.2rem;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.filters input {
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--lilac-light);
+  background: var(--bg-card);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease;
+}
+
+.filters input:focus {
+  outline: none;
+  border-color: var(--lilac);
+}
+
+.clear-filters-btn {
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--olive-green);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.clear-filters-btn:hover {
+  background: var(--olive-dark);
+  transform: translateY(-2px);
+}
+
+/* Photo grid */
+.gallery,
+.album-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0.2rem;
+}
+
+.gallery img,
+.album-photos img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.gallery img.carregada,
+.album-photos img.carregada {
+  opacity: 1;
+}
+
+.gallery img:hover,
+.album-photos img:hover {
+  transform: scale(1.045) rotate(-0.3deg);
+  box-shadow: var(--shadow-strong);
+}
+
+@media (max-width: 900px) {
+  .gallery, .album-photos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .gallery, .album-photos { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Albums */
+.album {
+  margin-top: 1rem;
+  padding-top: 1.6rem;
+  border-top: 1px dashed var(--lilac-light);
+}
+
+.album-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--olive-dark);
+  font-size: 1.3rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.album-title::before {
+  content: "❦";
+  color: var(--lilac);
+}
+
+/* Gallery lightbox: diary-style caption */
+#modalInfo {
+  margin-top: 0.9rem;
+  max-width: 42rem;
+  max-height: 22vh;
+  overflow-y: auto;
+  font-family: var(--font-handwritten);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+  padding: 0 0.5rem;
+}
+
+#modalImg {
+  object-fit: contain;
+  background: var(--bg-light);
+}
+
+/* empty state, in case a filter finds nothing */
+.empty {
+  text-align: center;
+  color: var(--text-soft);
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  padding: 2rem 0;
+  grid-column: 1 / -1;
+}

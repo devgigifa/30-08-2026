@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../assets/20230830_175009869_HDR.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.error-msg {
+  color: #fff;
+  font-size: 0.95em;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+  background: rgb(77, 55, 77); /* light lilac */
+  border: 1px solid #c8a2c8;
+  border-radius: 10px;
+  padding: 6px 12px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.error-msg.show {
+  opacity: 1;
+  height: auto;
+}
+
+.container {
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(1px);
+  box-shadow: 
+    -5px -5px 15px rgba(255, 255, 255, 0.15),
+    5px 5px 15px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.maincontainer {
+  width: 400px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(1px);
+  border-radius: 8px;
+  display: grid;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    -3px -3px 8px rgba(255, 255, 255, 0.1),
+    3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.container .form.signin {
+  display: flex;
+}
+
+.container .form h2 {
+  color: var(--text-light);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.container .form .inputBox {
+  position: relative;
+  width: 300px;
+}
+
+.container .form .inputBox input {
+  padding: 12px 10px 12px 48px;
+  border: none;
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+  font-weight: 300;
+  border-radius: 25px;
+  font-size: 1em;
+  box-shadow: 
+    -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transition: 0.5s;
+  outline: none;
+}
+
+.container .form .inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 12px 10px 12px 48px;
+  pointer-events: none;
+  font-size: 1em;
+  font-weight: 300;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.container .form .inputBox input:valid ~ span,
+.container .form .inputBox input:focus ~ span {
+  color: var(--lilac-dark);
+  border: 1px solid var(--lilac-dark);
+  background: var(--bg-input);
+  transform: translateX(25px) translateY(-7px);
+  font-size: 0.6em;
+  padding: 0 8px;
+  border-radius: 10px;
+  letter-spacing: 0.1em;
+}
+
+.container .form .inputBox input:valid,
+.container .form .inputBox input:focus {
+  border: 1px solid var(--lilac-dark);
+}
+
+.container .form .inputBox i {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 25px;
+  padding: 2px 0;
+  padding-right: 8px;
+  color: var(--olive-green);
+  border-right: 1px solid var(--olive-green);
+}
+
+.container .form .inputBox input[type="submit"] {
+  background: var(--olive-green);
+  color: var(--bg-input);
+  padding: 10px 0;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 
+    -5px -5px 15px rgba(255, 255, 255, 0.15),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.container .form .inputBox input[type="submit"]:hover {
+  filter: brightness(1.2);
+}
+
+.container .form p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75em;
+  font-weight: 300;
+}
+
+.container .form p a {
+  font-weight: 500;
+  color: var(--text-light);
+}
